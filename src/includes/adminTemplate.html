@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Automarker Admin</title>
+		<link rel="stylesheet" href="/common/bootstrap/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
+		<script src="/common/jquery.min.js"></script>
+		{{&app_init_js}}
+	</head>
+	<body>
+		
+		{{#error}}<br/> <br/><span class="alert">{{error}}</span><br/> <br/>{{/error}}
+
+		<div class="container">
+			<form method="post" class="form-horizontal">
+				<fieldset>
+					{{&csrf_token}}
+					
+					<legend>Specification</legend>
+
+					<div class="control-group">
+						<label class="control-label" for="filename">Filename</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" name="filename" id="filename" placeholder="e.g. hello.txt" value="{{filename}}">
+							<span class="help-block">
+								The filename where find the matching data
+							</span>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="stdin">Expected Data</label>
+						<div class="controls">
+							<textarea name="expectedData" placeholder="hello world" id="expectedData" style="width: 320px; height: 120px;">{{expectedData}}</textarea>
+						</div>
+					</div>
+
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary">Save changes</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>
